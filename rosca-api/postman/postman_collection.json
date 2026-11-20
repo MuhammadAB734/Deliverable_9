@@ -1,0 +1,146 @@
+{
+  "info": {
+    "_postman_id": "d1f4b9d8-rosca-track-a",
+    "name": "ROSCA API - Track A",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/health"
+      }
+    },
+    {
+      "name": "Create Circle",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"Demo Circle\", \"contribution_amount\": 1000, \"email\": \"demo@example.com\"}"
+        },
+        "url": "{{baseUrl}}/api/circles"
+      }
+    },
+    {
+      "name": "Create Member",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"full_name\": \"Amina Khan\", \"phone\": \"+27110000000\", \"email\": \"amina@example.com\"}"
+        },
+        "url": "{{baseUrl}}/api/members"
+      }
+    },
+    {
+      "name": "Create Membership",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"member_id\": 1, \"circle_id\": 1, \"rotation_position\": 1}"
+        },
+        "url": "{{baseUrl}}/api/memberships"
+      }
+    },
+    {
+      "name": "Generate Track A Schedule",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/api/circles/1/generate-schedule"
+      }
+    },
+    {
+      "name": "List Members",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/members"
+      }
+    },
+    {
+      "name": "List Circles",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/circles"
+      }
+    },
+    {
+      "name": "List Memberships",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/memberships"
+      }
+    },
+    {
+      "name": "List Cycles",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/cycles"
+      }
+    },
+    {
+      "name": "List Contributions",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/contributions"
+      }
+    },
+    {
+      "name": "List Payouts",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/payouts"
+      }
+    },
+    {
+      "name": "Invalid Member Validation",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"full_name\":\"\"}"
+        },
+        "url": "{{baseUrl}}/api/members"
+      }
+    },
+    {
+      "name": "SQL Injection ID Test",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/members/1%20OR%201=1"
+      }
+    }
+  ]
+}
